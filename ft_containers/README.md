@@ -1,7 +1,5 @@
 # ft_containers
 
-
-
 ## 참고
 
 ### 레퍼런스
@@ -9,41 +7,25 @@
 * https://en.cppreference.com/w/
 * https://docs.microsoft.com/ko-kr/cpp/standard-library/
 * https://modoocode.com/
-* https://ehclub.co.kr/1213?category=656403
-* https://www.cppkorea.org/#/
 * https://runebook.dev/ko/docs/cpp/-index-
+* https://www.cppkorea.org/CppCoreGuidelines/
+* https://gcc.gnu.org/onlinedocs/gcc-4.6.2/libstdc++/api/a00588.html ⭐️
+* https://docs.microsoft.com/ko-kr/cpp/standard-library/cpp-standard-library-header-files?view=msvc-160
 
-### 읽어보면 좋을 묶음 글들
+### 읽어보면 좋을 글들
+* https://ehclub.co.kr/1213?category=656403
 * https://narss.tistory.com/entry/new%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C?category=617883 : Advanced C++
 * https://devsophia.tistory.com/entry/STL-%ED%9B%91%EC%96%B4%EB%B3%B4%EA%B8%B0-01-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EB%B0%98%EB%B3%B5%EC%9E%90?category=779494 : 꺼내먹어요/C++
 * https://supark7.tistory.com/entry/22-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-C-Idioms-Thin-Template?category=509074 : 디자인패턴
 * https://ehpub.co.kr/category/programming-language/%eb%94%94%eb%94%a4%eb%8f%8c-c/ : 디딤돌 C++
 * https://docs.microsoft.com/ko-kr/cpp/cpp/?view=msvc-160
 * https://blog.hexabrain.net/category/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EA%B4%80%EB%A0%A8/C/C%2B%2B : C++ 강좌
-* http://www.soen.kr/ ⭐️
-
-
+* http://www.soen.kr/
+* http://www.martinbroadhurst.com/stl/table_of_contents.html
+* http://ajwmain.iptime.org/programming/book_summary/%5B02%5Deffective_stl/effective_stl.html : effective C++, effective STL
+* https://c-annotationskr.sourceforge.io/cplusplus.html : C++ 주해서
 
 ## 공부 내용
-
-### allocator 클래스
-* https://docs.microsoft.com/ko-kr/cpp/standard-library/allocator-class?view=msvc-160
-* https://woo-dev.tistory.com/51 ⭐️
-    > * `<memory>` 헤더에 존재. 유연한 메모리 관리를 위한 클래스.  
-    > * 메모리 동적 할당 및 해제에는 new/delete를 사용하는데, allocator은 라이브러리를 작성할 때(특히 표준 라이브러리의 컨테이너를 구현할 때) 세밀한 사용을 위해 사용된다.  
-    > * `T* allocate(size_t);`: 메모리 할당  
-    > * `void deallocate(T*, size_t);`: 메모리 해제  
-    > * `void construct(T*, const T&);`: 요소 저장  
-    > * `void destory(T*);`: 객체 소멸
-* ❓ deallocate와 destroy의 차이점 및 사용법은?
-* https://m.blog.naver.com/PostView.nhn?blogId=et3569&logNo=130118830696&proxyReferer=https:%2F%2Fwww.google.com%2F
-    > * allocator란? 메모리의 할당과 해제를 담당하는 객체.  
-    > * STL 컨테이너 템플릿들은 메모리 관리에 이용할 allocator 객체를 인자로 받는다.  
-    > * `template < class T, class Alloc = std::allocator<T> > class list {...}`  
-* http://www.cplusplus.com/reference/memory/allocator/construct/
-* https://openmynotepad.tistory.com/57?category=854742
-* https://openmynotepad.tistory.com/58
-* https://challengeok.tistory.com/31
 
 ### std와 stl
 * *std*
@@ -53,23 +35,68 @@
         > * STL은 컨테이너, 반복자, 알고리즘의 3가지로 구성.
 * ❓ stl인지 std인지 어떻게 알지?
 
+### vector
+* https://lazyren.github.io/devlog/vector.html
+* https://ehpub.co.kr/3-1-vector/
+    > * 배열은 같은 종류의 자료를 연속적인 메모리에 보관하는 자료구조.
+    > * 배열은 원소의 개수를 변경할 수 없는 한계를 가짐.
+    > * vector은 동적으로 연속적인 메모리에 할당. 배열의 크기를 신경 안써도 됨.
+* https://ehpub.co.kr/vector/
+* https://hyeonstorage.tistory.com/324 ⭐️
+* https://modoocode.com/178 ⭐️
+    > * default 생성자: 빈 벡터를 생성한다. (size는 0)
+    > * fill 생성자: 값이 T인 원소를 n개 가지는 벡터를 생성한다.
+    > * range 생성자: first부터 last까지 순회하며, 각 원소를 벡터의 원소로 취한다.
+    > * copy 생성자: 벡터 x와 동일한 원소(복사본)를 가지는 벡터를 생성한다.
+* https://woodforest.tistory.com/206
+* https://2jinishappy.tistory.com/67
+* *size vs capacity vs max_size*
+    * https://sollu.wordpress.com/2010/03/25/stl-vector-size-vs-capacity-vs-max_size/
+    * http://www.java2s.com/Code/Cpp/Vector/vectormaxsizesizecapacity.htm
+
+### list
+* https://ssinyoung.tistory.com/46
+    > * list는 이중 연결리스트.
+* https://blockdmask.tistory.com/76
+* https://kswims.tistory.com/136
+* https://ehclub.co.kr/1236
+* https://stackoverflow.com/questions/34875315/implementation-my-own-list-and-iterator-stl-c
+* https://gist.github.com/DaeGwang/5125a7aaf7273bf56c6cb95a97652f5f
+
+### map
+* https://modoocode.com/224
+* 레드블랙트리
+    * https://itstory.tk/entry/%EB%A0%88%EB%93%9C%EB%B8%94%EB%9E%99-%ED%8A%B8%EB%A6%ACRed-black-tree
+* https://stackoverflow.com/questions/18414579/what-data-structure-is-inside-stdmap-in-c
+
+### allocator(할당자)
+* https://woo-dev.tistory.com/51 ⭐️
+    > * `<memory>` 헤더에 존재. 유연한 메모리 관리를 위한 클래스.  
+    > * 메모리 동적 할당 및 해제에는 new/delete를 사용하는데, allocator은 라이브러리를 작성할 때(특히 표준 라이브러리의 컨테이너를 구현할 때) 세밀한 사용을 위해 사용된다.  
+    > * `T* allocate(size_t);`: 메모리 할당  
+    > * `void deallocate(T*, size_t);`: 메모리 해제  
+    > * `void construct(T*, const T&);`: 요소 저장  
+    > * `void destory(T*);`: 객체 소멸
+* https://m.blog.naver.com/PostView.nhn?blogId=et3569&logNo=130118830696&proxyReferer=https:%2F%2Fwww.google.com%2F 
+    > * allocator란? 메모리의 할당과 해제를 담당하는 객체.  
+    > * STL 컨테이너 템플릿들은 메모리 관리에 이용할 allocator 객체를 인자로 받는다.  
+    > * `template < class T, class Alloc = std::allocator<T> > class list {...}`  
+* https://openmynotepad.tistory.com/57?category=854742
+* https://openmynotepad.tistory.com/58
+
 ### explicit
 * https://dydtjr1128.github.io/cpp/2019/07/13/Cpp-explicit-keyowrd.html
 * https://hyeonstorage.tistory.com/313
 
 ### iterator
-* *iterator*
-    * https://narss.tistory.com/entry/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EB%B0%98%EB%B3%B5%EC%9E%90?category=617883
-    * https://mayple.tistory.com/entry/CSTL2%EC%9E%A5-%EB%B0%98%EB%B3%B5%EC%9E%90iterator
-    * https://users.cs.northwestern.edu/~riesbeck/programming/c++/stl-iterator-define.html : 영어라...
-* *iterator 구현*
-    * https://devsophia.tistory.com/entry/%EB%B0%98%EB%B3%B5%EC%9E%90%EB%A5%BC-%EC%A7%81%EC%A0%91-%EC%A0%95%EC%9D%98%ED%95%98%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 ⭐️
-        > STL의 알고리즘은 컨테이너가 아닌 반복자만 받아서 처리한다. 알고리즘은 어떻게 반복자가 가리키는 타입을 추론하는 것인가?  
-        > (다시 읽어보자. 정확히 이해 못했다.)
-* *reverse_iterator*
-    * https://hyeonstorage.tistory.com/322
-* 왜 컨테이너마다 iterator을 따로 구현하는가? iterator은 어디서 참고하지? 어디까지 구현해야하지?
-    > 컨테이너의 Member types을 참고해 만들면 된다. 어디까지 구현해야 하는지는 iterator의 카테고리를 보면 된다.
+* vector iterator는 전체적으로 다음을 보고 구현하였다.
+    * https://www.cplusplus.com/reference/iterator/RandomAccessIterator/
+    * https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator
+    * https://www.cplusplus.com/reference/iterator/reverse_iterator/
+* https://mayple.tistory.com/entry/CSTL2%EC%9E%A5-%EB%B0%98%EB%B3%B5%EC%9E%90iterator
+* https://devsophia.tistory.com/entry/%EB%B0%98%EB%B3%B5%EC%9E%90%EB%A5%BC-%EC%A7%81%EC%A0%91-%EC%A0%95%EC%9D%98%ED%95%98%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+    > 내가 아직 공부하지 않은 iterator_traits에 대한 내용.
+* http://www.soen.kr/lecture/ccpp/cpp4/39-2-6.htm
 
 ### iterator의 카테고리
 * https://narss.tistory.com/entry/%EB%B0%98%EB%B3%B5%EC%9E%90-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%ACiterator-category ⭐️
@@ -87,42 +114,38 @@
     > * ex) list는 양방향 반복자를 지원하므로, 알고리즘의 reverse 함수가 사용 가능하다. 하지만 sort 함수는 사용 불가능하다. 따라서 list는 sort를 멤버함수로 따로 구현하고 있다. 즉, sort 메서드(내부적으로도 구현 방법이 다름)를 사용해야 한다.
     > * 즉, STL의 알고리즘 함수를 지원하는 반복자를 가지는 컨테이너는 해당 함수를 따로 구현할 필요가 없으며, 그렇지 않은 경우 따로 구현해야 하거나 메서드를 사용해야 한다.
 * http://www.tcpschool.com/cpp/cpp_iterator_category
-* 그렇다면 컨테이너 별로 반복자를 만들 것이 아니라, 반복자 카테고리 별로 만드는 것이 낫지 않나?
-    > 일단 원래 C++ 자체에서도 반복자 종류들은 빈 클래스로 정의되어 있고, 오버로딩해서 쓰는 것 같다.  
-    > 내겐 너무 어려우므로 최대한 간소화하는 방향으로 가보자.  
-    > 하지만 무엇을 기준으로, 어디서 어디까지 해야하나?  
-    > 아마 (vector의 경우) random_access_iterator_tag 페이지의 모든 것들을 구현하면 될 듯.
 
 ### iterator의 operator
-* https://docs.microsoft.com/ko-kr/cpp/standard-library/iterator-operators?view=msvc-160
-* https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator
 * *operator->*
     * https://www.codentalks.com/t/topic/8397
     * https://stackoverflow.com/questions/9007775/how-to-implement-operator-for-iterator-type
-* *operator-*
-    * http://www.cplusplus.com/reference/iterator/move_iterator/operator_minus-free/
-        > cplusplus에 iterator::operator을 검색하면 나온다.  
-        > 하지만 이는 rev나 move iterator에 대한 내용이고... ❓ 그냥 iterator에 대한 것은 없는걸까?  
-        > 위의 iterator들은 predefined라고 미리 정의되어 있는 애들이라 그런 것 같다. ❓ iterator은 원래 컨테이너마다 오버로딩(재구현)해서 쓰는 존재여서 그런가?
+        > ❓ const도 해줘야 하나? 아직 const 부분이 헷갈린다.
 * *전치/후치 증감 연산자*
     * https://m.blog.naver.com/PostView.nhn?blogId=kks227&logNo=60205596079&proxyReferer=https:%2F%2Fwww.google.com%2F ⭐️
     * https://stackoverflow.com/questions/9386266/overloading-the-operator-to-increment-an-iterator
-* 전체적으로는 다음을 보고 구현하였다. ⭐️
-    * https://www.cplusplus.com/reference/iterator/reverse_iterator/
-        > predefined iterator. 멤버함수(연산자)를 참고하려면 이걸 하면 될 듯?
-    * https://en.cppreference.com/w/cpp/named_req/RandomAccessIterator
 
 ### const_iterator
 * https://nedy.tistory.com/30
     > const value_type을 가리키는 iterator.  
     > 즉, iterator은 변경 가능(`it++`), iterator가 가리키는 값은 변경 불가능(`*it += 1`).  
+* https://pythonq.com/so/c%2B%2B/1600510
+* https://pythonq.com/so/c%2B%2B/11500
+* https://yonomi.tistory.com/380
+* https://stackoverflow.com/questions/7758580/writing-your-own-stl-container/7759622#7759622 ⭐️
+* https://stackoverflow.com/questions/3582608/how-to-correctly-implement-custom-iterators-and-const-iterators ⭐️
+* https://stackoverflow.com/questions/2150192/how-to-avoid-code-duplication-implementing-const-and-non-const-iterators/41306206#41306206 ⭐️
 
-### iterator의 주소
-* http://grindawayat.blogspot.com/2015/05/vector-iterator-vectoriteratorelementer_21.html
-    > `&(*if)`의 형태로 가능한 듯.
-
-### operator 오버로딩
-* https://mufflemumble.tistory.com/27
+### reverse_iterator
+* https://www.daniweb.com/programming/software-development/threads/76622/need-help-writing-my-own-reverse-iterator-class
+* http://www.martinbroadhurst.com/stl/table_of_contents.html
+* http://cplusplus.com/forum/beginner/196504/
+* https://docs.microsoft.com/ko-kr/cpp/standard-library/reverse-iterator-class?view=msvc-160
+* https://www.python2.net/questions-37187.htm
+* https://www.slideshare.net/HyunJoonPark6/c-advanced-4-77458324
+* https://nekoplu5.tistory.com/90
+* https://docs.microsoft.com/ko-kr/cpp/standard-library/vector-class?view=msvc-160#const_iterator
+* *base()*
+    * http://egloos.zum.com/sweeper/v/2970390
 
 ### friend
 * https://genesis8.tistory.com/98
@@ -138,44 +161,12 @@
 * https://min-zero.tistory.com/entry/C-%EA%B8%B0%EB%B3%B8-%EA%B3%B5%EB%B6%80%EC%A0%95%EB%A6%AC-15-1-OOP-%EC%BA%A1%EC%8A%90%ED%99%94-%ED%94%84%EB%A0%8C%EB%93%9Cfriend
 
 ### 연산자 오버로딩
-* https://blog.hexabrain.net/177 ⭐️
+* https://blog.hexabrain.net/177
 * https://mandy8303.tistory.com/53
-* https://mandy8303.tistory.com/57?category=762830 ⬜ 정리해볼 것
-
-### 템플릿
-* https://www.cppkorea.org/CppCoreGuidelines/Templates/
-
-### :: 연산자
-* https://zoonvivor.tistory.com/92
-
-### vector
-* https://lazyren.github.io/devlog/vector.html
-* https://ehpub.co.kr/3-1-vector/
-    > * 배열은 같은 종류의 자료를 연속적인 메모리에 보관하는 자료구조.
-    > * 배열은 원소의 개수를 변경할 수 없는 한계를 가짐.
-    > * vector은 동적으로 연속적인 메모리에 할당. 배열의 크기를 신경 안써도 됨.
-* https://ehpub.co.kr/vector/
-* https://hyeonstorage.tistory.com/324 ⭐️
-* https://modoocode.com/178 ⭐️
-    > * default 생성자: 빈 벡터를 생성한다. (size는 0)
-    > * fill 생성자: 값이 T인 원소를 n개 가지는 벡터를 생성한다.
-    > * range 생성자: first부터 last까지 순회하며, 각 원소를 벡터의 원소로 취한다.
-    > * copy 생성자: 벡터 x와 동일한 원소(복사본)를 가지는 벡터를 생성한다.
-* https://woodforest.tistory.com/206
-* https://2jinishappy.tistory.com/67
-* size vs capacity vs max_size
-    * https://sollu.wordpress.com/2010/03/25/stl-vector-size-vs-capacity-vs-max_size/
-    * http://www.java2s.com/Code/Cpp/Vector/vectormaxsizesizecapacity.htm
-
-### list
-* https://ssinyoung.tistory.com/46
-    > * list는 이중 연결리스트.
-* https://blockdmask.tistory.com/76
-* https://kswims.tistory.com/136
-* https://ehclub.co.kr/1236
+* https://mandy8303.tistory.com/57?category=762830
 
 ### 전방 선언
-* error: use of undeclared identifier 'ft'
+* `error: use of undeclared identifier 'ft'`
 * https://stackoverflow.com/questions/22197030/what-is-an-undeclared-identifier-error-and-how-do-i-fix-it
 * https://boycoding.tistory.com/143
     > 전방 선언과 정의
@@ -193,103 +184,293 @@
     > bool 인자를 이용해 타입을 정하게 하는 방법은 다음과 같다.
     > * std::conditional을 이용한다. -> 규칙에 위반된다. 따라서 공부하진 않았다.
     > * template specialization를 이용한다. -> 이 방법을 사용하였다.
+* *템플릿 클래스 상속*
+    * https://m.blog.naver.com/PostView.nhn?blogId=vjhh0712v&logNo=221561418596&proxyReferer=https:%2F%2Fwww.google.com%2F
+* *템플릿 friend*
+    * https://blog.plorence.kr/528
 
 ### 예외
 * *strong guarantee*
     * https://docs.microsoft.com/ko-kr/cpp/cpp/how-to-design-for-exception-safety?view=msvc-160
     * https://m.blog.naver.com/PostView.nhn?blogId=mug896&logNo=140168091611&proxyReferer=https:%2F%2Fwww.google.com%2F
         > * strong guarantee: 예외가 발생했을 때, 오브젝트가 함수 수행 전 상태로 보존되는 것을 보장.
-    * https://banaba.tistory.com/2 ⭐️
+    * https://banaba.tistory.com/2
 * *std::out_of_range*
     * https://www.cplusplus.com/reference/stdexcept/out_of_range/
 
-### difference_type
-* http://www.soen.kr/lecture/ccpp/cpp4/39-2-6.htm ⭐️
+### enable_if
+* https://hellobird.tistory.com/135
+* https://bckim.com/posts/cpp11-std-enable_if/
+* https://modoocode.com/255
+* https://modoocode.com/295
 
+### 출력 스타일 지정하기
+* *색상*
+    * http://www.gisdeveloper.co.kr/?p=9772
+    * https://sonseungha.tistory.com/474
+* *포맷*
+    * https://m.blog.naver.com/PostView.nhn?blogId=ahalinux&logNo=220856924222&proxyReferer=https:%2F%2Fwww.google.com%2F
+    * https://doitnow-man.tistory.com/234
+    * https://m.blog.naver.com/PostView.nhn?blogId=start3535&logNo=30146765701&proxyReferer=https:%2F%2Fwww.google.com%2F
+    * https://repilria.tistory.com/243
 
+### 헤더 파일 중복
+* https://yesarang.tistory.com/64
+* hpp 파일들을 어떻게 구성해야 하는지에 어려움을 겪었다.  
+    순서나 위치를 잘 못 하면 컴파일이 되지 않았다. 어떻게 정리하는 것이 보편적인 스타일인지 공부가 필요하다.  
 
-## vector 함수 정리
+### vector의 capacity 증가 매커니즘
+* *reserve*
+    * clang++의 경우, arg만큼 capacity를 배정한다.
+* *resize*
+    * clang++의 경우, 두배씩 늘어나는 것을 확인할 수 있다.
+    * https://stackoverflow.com/questions/48537812/why-does-stdvector-reserve-not-double-its-capacity-while-resize-does
+    > 다시 말해, reserve(n)은 capacity가 n이 되지만, resize(n)은 capacity가 현재 값의 두배가 된다.
+* *push_back*
+    * https://stackoverflow.com/questions/45403052/when-does-a-stdvector-enlarge-itself-when-we-push-back-elements
+        ```
+        std::vector<int> v;
+        unsigned long previouscapacity = 0;
+        for (unsigned int i = 0; i < 10; i++)
+        {
+            v.push_back(i);
+            if (v.capacity() != previouscapacity)
+            {
+                std::cout << "new capacity: " << v.capacity() << " new size: " << v.size() << " ratio: " << ((float) v.capacity()) / previouscapacity << '\n';
+                previouscapacity = v.capacity();
+            }
+        }
+        /*
+        new capacity: 1 new size: 1 ratio: inf
+        new capacity: 2 new size: 2 ratio: 2
+        new capacity: 4 new size: 3 ratio: 2
+        new capacity: 8 new size: 5 ratio: 2
+        new capacity: 16 new size: 9 ratio: 2
+        */
+        ```
+    * clang++의 경우, 두배씩 늘어나는 것을 확인할 수 있다. 
+* *assign*
+    * clang++의 경우, 할당하는 요소 수만큼 capacity를 새로 할당한다.
+* *그 외 읽어볼만한 글*
+    * https://stackoverflow.com/questions/1100311/what-is-the-ideal-growth-rate-for-a-dynamically-allocated-array
+        > 대충 대부분의 컴파일러에서는 capacity + capacity / 2 로 증가한다는 내용.
 
-### 코플린 폼
-* [x] 생성자
-* [x] 소멸자
-* [x] operator=
+### error: use of undeclared identifier 'pos_'
+* https://stackoverflow.com/questions/22197030/what-is-an-undeclared-identifier-error-and-how-do-i-fix-it
+    > private한 멤버 변수에 직접 접근할 수 없어 발생하는 에러.  
+    > ❗️ `&(*pos_)`로 해결.
 
-### Iterators
-* [x] begin
-* [x] end
-* [x] rbegin
-* [x] rend
+### READ of size 4 at ... thread T0 (heap-buffer-overflow)
+* https://stackoverflow.com/questions/51579267/addresssanitizer-heap-buffer-overflow-on-address
+    > fsanitizer=address 옵션이 무엇인지, heap-buffer-overflow가 무엇인지 설명하는 글.
 
-### Capacity
-* [x] size
-* [ ] max_size
-* [x] resize
-    > * `void resize (size_type n, value_type val = value_type());`
-    > * **n개 요소를 갖도록 컨테이너를 리사이즈한다.**  
-    >   n이 size보다 작다면, 앞의 n개 요소만 남고 이후는 제거(소멸)된다.  
-    >   n이 size보다 크다면, 컨테이너가 확장되어 val이 추가된다.  
-    >   n이 capacity보다 크다면, 할당된 저장공간이 자동으로 재할당된다.
-* [x] capacity
-* [x] empty
-* [x] reserve
-    > * `void reserve (size_type n);`
-    > * **capacity의 변경을 요청한다.**  
-    >   벡터가 최소 n개 요소를 포함하도록 capacity의 변경을 요청한다.  
-    >   n이 capacity보다 크다면, 저장공간을 재할당하여 n(혹은 그 이상)으로 늘린다.  
-    >   그 외의 경우에는 재할당이 이루어지지 않으며, capacity에 변화는 없다.  
-    >   이 함수는 size나 요소에 영향을 주지 않는다.
+### error: overloaded 'operator+' must be a unary or binary operator (has 3 parameters)
+* https://stackoverflow.com/questions/13554320/overloaded-operator-must-be-a-unary-or-binary-operator-error
+    > 연산자의 인자가 3개라는 에러.  
+    > ❗️ friend를 붙여 해결.
 
-### Element access
-* [x] operator[]
-    > ❓ const는 어떻게?
-* [x] at
-    > ❓ std::out_of_range 쓰면 되나?  
-    > ❓ 예외에 인자 안주면 어떻게 되나? 인자를 줘야 하나?
-* [x] front
-* [x] back
+### vector와 list의 기본 생성자의 차이
+* 왜 이런 차이가 있는 것이지? list는 head가 할당돼서 그런가?
+    ```c++ 
+    std::list<int> lst;
+    std::cout << *(lst.begin()) << std::endl;
+    // 컴파일이 되며, 0을 출력.
 
-### Modifiers
-* [x] assign
-    > * `template <class InputIterator> void assign (InputIterator first, InputIterator last);`  
-    >   `void assign (size_type n, const value_type& val);`
-    > * **vector에 내용을 할당한다.**  
-    >   현재 내용을 대신하여 새로운 내용을 할당하고, size를 수정한다.  
-    >   재할당이 발생하면, 필요한만큼 내부 allocator에 의해 할당된다.  
-    >   호출 전에 컨테이너에 있던 모든 요소는 소멸되고 새로운 요소로 대체된다. ❓ 원문 다시 봐야!  
-    >   새 벡터 size가 capacity를 초과하는 경우에만 재할당.
-* [x] push_back
-    > * void push_back (const value_type& val);
-    > * **끝에 요소를 추가한다.**  
-    >   마지막 요소 뒤에 새 요소를 추가한다.  
-    >   이렇게 하면 size가 1 증가하는데, 이것이 capacity를 초과하면 할당된 저장공간이 자동으로 재할당된다.
-* [x] pop_back
-    > * `void pop_back();`
-    > * **마지막 요소를 삭제한다.**  
-    >   마지막 요소를 삭제하고 size가 1 감소한다.  
-    >   제거된 요소는 소멸한다.
-* [x] insert ⭐️
-    > * **요소를 삽입한다.**  
-    >   지정된 위치에 새 요소를 삽입해서 벡터를 확장한다. 삽입된 요소 수만큼 size가 늘어난다.  
-    >   새 백터 size가 capacity를 초과하면 재할당.  
-    >   벡터는 배열을 저장소로 사용하므로, 벡터 끝이 아닌 곳에 insert를 하면 전체적인 재배치가 이루어져 비효율적. 이는 다른 시퀀스 컨테이너(ex. list, forward_list)와 비교하면 알 수 있다.  
-* [x] erase
-    > * `iterator erase (iterator position);`  
-    >   `iterator erase (iterator first, iterator last);`  
-    > * **요소들을 삭제한다.**  
-    >   단일 요소 또는 요소 범위를 삭제한다.  
-    >   제거된 요소 수만큼 컨테이너 size를 줄일 수 있다.  
-    >   하지만 이또한 다른 시퀀스 컨테이너(ex. list, forward_list)에 비해 비효율적인 작업이다.
-* [ ] swap
-* [x] clear
-    > * `void clear();`
-    > * **요소를 모두 제거한다.**  
-    >   벡터의 모든 요소(소멸됨)를 제거하고 size를 0으로 만든다.  
-    >   재할당이 일어나는 것은 보장되지 않으며, capacity의 변경도 보장되지 않는다.  
-    >   재할당을 강제하는 일반적인 방법은, swap을 사용하는 것이다.  
-    >   `vector<T>().swap(x);   // clear x reallocating` ❓ 무슨 의미지?
+    std::vector<int> vec; // 오류!
+    std::cout << *(vec.begin()) << std::endl;
+    // 컴파일 자체가 안됨. "불완전한 형식은 사용할 수 없습니다." 오류.
+    ```
+* ❗️ vector에서는 기본 생성자 시에 0만큼 할당되므로, 실질적으론 할당되지 않는다. 따라서 접근 불가능.  
+    하지만 list에서는 기본 생성자 시에 1만큼(dummy) 할당되므로, 접근 가능한 것 같다.  
+* 왜 다 0이 출력될까?
+    ```c++
+    std::list<int> lst;
+    for (int i = 0; i < 10; i++)
+        std::cout << *(lst.begin()++) << std::endl; // 0이 10번 출력.
+    ```
+* ❗️ 처음에 생성된 더미의 val이 T()이며, dummy의 prev와 next가 dummy 자기 자신이기 때문인 듯. 
 
+### iterator의 쓰기 연산자(*it=x)는 어떻게 정의하는가
+* 쓰기 연산자가 대입 연산자와 같은 것인 줄 알았으나 아닌 것 같다. 어떻게 정의하나?  
+    예를 들어, 출력 반복자에는 쓰기 연산자가 제공된다. 순방향 반복자에는 이에 더불어 대입 연산자가 제공된다.  
+    또한, 입력 반복자에는 읽기 연산자는 있지만 쓰기 연산자는 없다.  
+    완전히 구분되는 것 같은데, 나는 아직 이를 따로 정의해본 적이 없다. 어떻게 이것을 컨트롤하는걸까?
 
-### Non-member function overloads
-* [x] relational operators
-* [ ] swap
+### 반복문에서 전위 연산자, 후위 연산자 주의할 점
+```c++
+int i = 0;
+while (i++ != 5)
+{
+    std::cout << i;
+} // 12345 출력
+
+int i = 0;
+while (i != 5)
+{
+    std::cout << i;
+    i++;
+} // 01234 출력
+```
+위의 두 결과가 같다고 착각하면 안된다.  
+조건문의 줄에서 탈출하면 증가하므로, 조건문 내부에는 증가한 변수가 전달된다.
+
+### error: no viable conversion from 'list_iterator<[...], true, [...]>' to 'list_iterator<[...], false, [...]>'
+```c++
+list& operator= (const list& x)
+{
+    if (this != &x)
+    {
+        // iterator it = x.begin(); // 컴파일 오류!
+        const_iterator it = x.begin(); // 컴파일 성공.
+        while (it != x.end())
+        {
+            push_back(*it);
+            it++;
+        }
+    }
+    return (*this);
+}
+```
+list& 가 아니라 const list& 이므로 그런 것 같다.  
+❓ const list& 라는 것은 무엇일까? 내용이 아예 수정 불가능 한 것인가?  
+❓ 그리고 레퍼런스에서는 const 위치에 따라 달라지는게 있나?  
+* https://stackoverflow.com/questions/15644938/what-does-in-instantiation-of-required-from-here-mean
+
+### iterator와 const_iterator은 어떻게 선택되는가
+```c++
+iterator begin()
+{
+    return (iterator(dummy_->next_));
+}
+const_iterator begin() const
+{
+    return (const_iterator(dummy_->next_));
+}
+```
+begin()은 iterator와 const_iterator 중 어떻게 선택되는가.  
+1. `iterator it = a.begin()`, `const_iterator it = a.begin()`와 같은 식으로, 리턴 값이 정해질 때에는 그 값에 맞게 컴파일되는 것 같다.
+2. 하지만 위에서 에러가 났던 것 처럼, 객체에 따라 정해질 때도 있는 듯.
+오버로딩에 대해 (특히 const) 더 공부가 필요하다.
+* https://stackoverflow.com/questions/42580761/why-does-stdbegin-always-return-const-iterator-in-such-a-case
+* https://stackoverflow.com/questions/47794223/getting-const-iterator-from-begin-instead-of-cbegin
+
+### 클래스 내에서 operator 함수를 사용할 때
+```c++
+list (const list& x)
+: dummy_(init_dummy()), size_(0), alloc_(std::allocator<T>()),
+node_alloc_(std::allocator<node>())
+{
+    *this = x; // 이렇게?
+    // operator=(x); // 위와 같은 표현인가?
+}
+```
+
+### 소멸자
+* alloc_.destroy는 왜 쓰는가. -> 아마 T가 클래스인 경우 소멸자를 호출하기 위해서일 듯.
+* ❓ 소멸자가 제대로 작동하는지는 어떻게 확인하나?
+
+### 오버로딩 시 템플릿 함수 선택을 방지하는 방법: enable_if
+```c++
+template <class InputIterator>
+void assign (InputIterator first, InputIterator last,
+            typename ft::enable_if<!ft::is_integral<InputIterator>::value>::type* = nullptr)
+{
+    clear();
+
+    InputIterator it(first);
+    while (it != last)
+    {
+        push_back(*it);
+        it++;
+    }
+}
+void assign (size_type n, const value_type& val)
+{
+    clear();
+
+    for (size_type i = 0; i < n; i++)
+        push_back(val);
+}
+```
+enable_if 구를 안써주면 `assign(3, 42);`를 실행해도 위의 템플릿으로 컴파일돼서 다음과 같은 오류가 발생한다.  
+> ./inc/list.hpp:209:31: error: indirection requires pointer operand ('int' invalid)
+>                     push_back(*it);
+따라서 InputIterator가 int인지 확인하기 위해 enable_if 구를 써준다.  
+아직 enable_if의 정확한 작동 방법은 공부가 필요!
+
+### predicate(서술자)
+* https://modoocode.com/225
+* http://occamsrazr.net/tt/entry/predicate-%EC%84%9C%EC%88%A0%EC%9E%90
+* list.unique()
+    ```c++
+    bool same_integral_part (double first, double second) // 서술자
+    { return ( int(first)==int(second) ); }
+
+    struct is_near {
+    bool operator() (double first, double second)
+    { return (fabs(first-second)<5.0); }
+    }; // 서술자
+
+    int main ()
+    {
+        double mydoubles[]={ 12.15,  2.72, 73.0,  12.77,  3.14,
+                            12.77, 73.35, 72.25, 15.3,  72.25 };
+        std::list<double> mylist (mydoubles,mydoubles+10);
+        
+        mylist.sort();             //  2.72,  3.14, 12.15, 12.77, 12.77,
+                                    // 15.3,  72.25, 72.25, 73.0,  73.35
+
+        mylist.unique();           //  2.72,  3.14, 12.15, 12.77
+                                    // 15.3,  72.25, 73.0,  73.35
+
+        mylist.unique (same_integral_part);  //  2.72,  3.14, 12.15
+                                            // 15.3,  72.25, 73.0
+
+        mylist.unique (is_near());           //  2.72, 12.15, 72.25
+
+        std::cout << "mylist contains:";
+        for (std::list<double>::iterator it=mylist.begin(); it!=mylist.end(); ++it)
+            std::cout << ' ' << *it;
+        std::cout << '\n';
+
+        return 0;
+    }
+    ```
+* list.remove_if()
+    ```c++
+    bool single_digit (const int& value) { return (value<10); }
+
+    struct is_odd {
+    bool operator() (const int& value) { return (value%2)==1; }
+    };
+
+    int main ()
+    {
+        int myints[]= {15,36,7,17,20,39,4,1};
+        std::list<int> mylist (myints,myints+8);   // 15 36 7 17 20 39 4 1
+
+        mylist.remove_if (single_digit);           // 15 36 17 20 39
+
+        mylist.remove_if (is_odd());               // 36 20
+
+        std::cout << "mylist contains:";
+        for (std::list<int>::iterator it=mylist.begin(); it!=mylist.end(); ++it)
+            std::cout << ' ' << *it;
+        std::cout << '\n';
+
+        return 0;
+    }
+    ```
+* ⬜️ 책으로 공부 후 정리할 것
+
+### pair
+* https://www.crocus.co.kr/597
+처음부터 궁금했던 std와 stl의 구분.  
+❓ pair은 stl이어서 사용 못하는 것인가? 아니면 std여서 사용 가능한 것인가?
+
+### map의 트리 구현
+* 트리를 어떻게 구현할 것인가?
+* 트리의 순회 방법은 무엇인가? (예전에 이것도 공부했는데 기억이...)
+* *이진트리 구현*
+    * https://jizard.tistory.com/110
+    * ⬜️ 책으로 공부 후 정리할 것
