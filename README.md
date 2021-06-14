@@ -20,6 +20,6 @@
 * [x] exam rank 03
 
 ***5 circle***
-* [x] cpp_module
-* [x] philosophers
+* [x] [cpp_module](https://github.com/moon9ua/42_seoul/tree/master/cpp)
+* [x] [philosophers](https://github.com/moon9ua/42_seoul/tree/master/philosophers)
 * [x] exam rank 04
